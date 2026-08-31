@@ -63,3 +63,20 @@ def test_ask_nonsense_hits_threshold_abstain():
 def test_ask_empty_question_rejected():
     r = client.post("/api/ask", json={"question": "   ", "call_llm": False})
     assert r.status_code == 422
+
+
+def test_ask_shelf_filter_restricts_sources():
+    """Part E: the /api/ask shelf_filter field, exposed by the page's shelf
+    dropdown, actually restricts retrieval rather than being decorative."""
+    r = client.post(
+        "/api/ask",
+        json={
+            "question": "Which fan units are supported on the 1830 PSS-32 shelf?",
+            "shelf_filter": "PSS-32",
+            "call_llm": False,
+        },
+    )
+    assert r.status_code == 200
+    body = r.json()
+    assert body["retrieved"], "expected PSS-32 chunks to be retrieved"
+    assert all(r["shelf"] == "PSS-32" for r in body["retrieved"])

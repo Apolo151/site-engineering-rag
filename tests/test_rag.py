@@ -6,8 +6,9 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
+from rag.embed import LoadedIndex  # noqa: E402
 from rag.headings import parse_heading  # noqa: E402
-from rag.retrieve import cosine_similarity, search  # noqa: E402
+from rag.retrieve import cosine_similarity, retrieve, search  # noqa: E402
 
 
 # --- Retrieval: manual search agrees with explicit cosine similarity -------
@@ -44,6 +45,86 @@ def test_search_respects_mask():
 
     results = search(query, matrix, k=3, mask=mask)
     assert all(i != 3 for i, _ in results)
+
+
+# --- Part E: metadata (shelf) filtering ------------------------------------
+#
+# retrieve() layers shelf_filter on top of search()'s generic mask: chunks
+# are excluded by an exact metadata match, not by score. The synthetic index
+# below deliberately makes the excluded chunk the *best* raw match (the
+# query vector is set equal to it) so a passing test proves the filter beats
+# similarity, not just that it happens to agree with it.
+
+
+def _synthetic_shelf_index() -> tuple[LoadedIndex, np.ndarray]:
+    rng = np.random.default_rng(7)
+    vectors = rng.normal(size=(4, 8)).astype("float32")
+    vectors /= np.linalg.norm(vectors, axis=1, keepdims=True)
+
+    chunks = [
+        {"chunk_id": "c0", "shelf": "PSS-8", "section_path": "... PSS-8 shelf ..."},
+        {"chunk_id": "c1", "shelf": "PSS-32", "section_path": "... PSS-32 shelf ..."},
+        {"chunk_id": "c2", "shelf": None, "section_path": "... front matter ..."},
+        {"chunk_id": "c3", "shelf": "PSS-32", "section_path": "... PSS-32 fan units ..."},
+    ]
+    index = LoadedIndex(
+        embeddings=vectors, chunks=chunks, manifest={"model_name": "all-MiniLM-L6-v2"}
+    )
+    return index, vectors
+
+
+def test_retrieve_shelf_filter_excludes_higher_scoring_other_shelf(monkeypatch):
+    index, vectors = _synthetic_shelf_index()
+    # Query vector == chunk c0's vector exactly: c0 (shelf=PSS-8) is the best
+    # possible match (cosine similarity 1.0), everything else scores lower.
+    monkeypatch.setattr("rag.retrieve.embed_query", lambda *a, **k: vectors[0].copy())
+
+    results = retrieve("irrelevant query text", index, k=3, shelf_filter="PSS-32")
+
+    assert results, "expected the two PSS-32 chunks to be retrieved"
+    returned_ids = {r.chunk["chunk_id"] for r in results}
+    assert returned_ids == {"c1", "c3"}  # only the PSS-32 chunks
+    assert all(r.chunk["shelf"] == "PSS-32" for r in results)
+    # c0 has the highest raw similarity (1.0, exact match) but must never
+    # appear: the filter overrides ranking, it doesn't just re-sort within it.
+    assert "c0" not in returned_ids
+
+
+def test_retrieve_shelf_filter_no_matching_chunks_returns_empty(monkeypatch):
+    index, vectors = _synthetic_shelf_index()
+    monkeypatch.setattr("rag.retrieve.embed_query", lambda *a, **k: vectors[0].copy())
+
+    results = retrieve("irrelevant query text", index, k=3, shelf_filter="PSS-16")
+
+    assert results == []
+
+
+def test_answer_question_shelf_filter_recovers_a_retrieval_miss():
+    """Regression test pinning the Part E before/after example in
+    docs/part-e-metadata-filtering.md: at k=4, the PSS-32 fan-unit section
+    (2.18, "FAN and FAN32H") is crowded out by near-identical fan sections
+    from other shelves unless the shelf filter is applied.
+    """
+    from rag.embed import load_index
+    from rag.pipeline import answer_question
+
+    index = load_index()
+    question = "Which fan units are supported on the 1830 PSS-32 shelf?"
+
+    unfiltered = answer_question(question, index, k=4, call_llm=False)
+    filtered = answer_question(question, index, k=4, shelf_filter="PSS-32", call_llm=False)
+
+    def has_fan_section(result):
+        return any("2.18 PSS-32 Fan Units" in r.chunk["section_path"] for r in result.retrieved)
+
+    assert not has_fan_section(unfiltered), (
+        "expected the unfiltered top-4 to miss the PSS-32 fan-unit section "
+        "(this is the retrieval gap the shelf filter is meant to fix)"
+    )
+    assert has_fan_section(filtered), (
+        "expected shelf_filter='PSS-32' to recover the PSS-32 fan-unit section into top-4"
+    )
+    assert all(r.chunk["shelf"] == "PSS-32" for r in filtered.retrieved)
 
 
 # --- Heading detection ------------------------------------------------------

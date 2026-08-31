@@ -65,11 +65,13 @@ any number.
    generated answer, and whether it is correct.
 5. A terminal transcript or short recording of the pipeline answering three of the questions live.
 
-## Explicitly out of scope for this submission
+## Stretch challenge status
 
 The assignment offers an optional stretch challenge — metadata filtering, re-ranking, or hybrid
-(embedding + keyword) search — worth bonus credit. It was intentionally left unimplemented here
-to fit the working time budget; the chunk schema and retrieval interface (a `shelf` metadata tag
-and a `shelf_filter` parameter already wired into `retrieve()`) exist as a starting hook if it's
-picked up later. See [`README.md`](../README.md#known-limitations) for the full list of known
-limitations.
+(embedding + keyword) search — worth bonus credit. **Metadata filtering was implemented**: every
+chunk carries a `shelf` tag from chunking, and `retrieve()`/`answer_question()` can restrict
+results to one shelf, exposed via the `--shelf` CLI flag and a live dropdown in the web GUI. See
+[`docs/part-e-metadata-filtering.md`](part-e-metadata-filtering.md) for what was built and a
+verified before/after example. Re-ranking and hybrid search were **not** implemented — out of
+scope for the working time budget. See [`README.md`](../README.md#known-limitations) for the full
+list of known limitations.

@@ -7,11 +7,14 @@ pages and says **"Not found in the provided document"** when the answer isn't th
 guessing.
 
 Built for the Nokia Egypt AI Summer Internship, Session 4 capstone. Parts A-D of the assignment
-are complete; Part E (stretch challenge) was intentionally left out of scope for this submission.
+are complete. Part E (stretch challenge) is partially attempted: **metadata filtering** — the
+shelf dropdown in the web GUI and the `--shelf` CLI flag — is implemented and demonstrated with a
+before/after example; re-ranking and hybrid search were not attempted.
 
-See [`docs/problem-statement.md`](docs/problem-statement.md) for the full problem statement and
+See [`docs/problem-statement.md`](docs/problem-statement.md) for the full problem statement,
 [`docs/diagrams.md`](docs/diagrams.md) for the system architecture, data flow, query sequence,
-and chunking diagrams.
+and chunking diagrams, and [`docs/part-e-metadata-filtering.md`](docs/part-e-metadata-filtering.md)
+for the metadata-filtering write-up.
 
 ## Quickstart
 
@@ -30,9 +33,11 @@ grading the retrieval half without an API key.
 
 ## Web GUI
 
-A single lightweight page over the same `answer_question()` pipeline — question box, the 8
-evaluation questions as one-click samples, the retrieved passages with their cosine scores and
-heading paths, the abstain/answered badge, and a collapsible view of the exact assembled prompt.
+A single lightweight page over the same `answer_question()` pipeline — question box, a shelf
+dropdown (Part E metadata filtering — see
+[`docs/part-e-metadata-filtering.md`](docs/part-e-metadata-filtering.md)), the 8 evaluation
+questions as one-click samples, the retrieved passages with their cosine scores and heading
+paths, the abstain/answered badge, and a collapsible view of the exact assembled prompt.
 
 ```bash
 uv run rag-web            # then open http://127.0.0.1:8000
@@ -116,8 +121,8 @@ shelf a given passage is actually about — the model needs it to answer Q7 corr
 
 Metadata carried per chunk: `chunk_id`, `chapter`, `section_number`, `section_title`,
 `section_path`, `page_start`/`page_end`, `word_count`, and a best-effort `shelf` tag (regex over
-`section_path`, e.g. `PSS-32`) reserved as a hook for metadata filtering if Part E is picked up
-later — `retrieve()` already accepts a `shelf_filter` argument.
+`section_path`, e.g. `PSS-32`). This `shelf` tag is what Part E's metadata filtering restricts
+retrieval by — see [`docs/part-e-metadata-filtering.md`](docs/part-e-metadata-filtering.md).
 
 **Extraction** (`src/rag/extract.py`) de-boilerplates the running header/footer without a
 hand-maintained content list, aside from documenting eight fixed template strings that repeat
@@ -240,10 +245,11 @@ Run it yourself with `uv run scripts/evaluate.py` (needs an LLM key) or
 2. **MiniLM truncates at 256 word-pieces** (~190 words). Chunks are capped near 220 words and the
    heading path is placed first in the embedding text specifically so it's never the part that
    gets truncated — but a very dense chunk could still lose its tail.
-3. **No lexical/keyword guarantee.** Dense retrieval alone has no mechanism to force an exact
-   card code like `8DC30T2` to matter more than semantically-similar-but-wrong nearby text. This
-   is precisely what Part E's hybrid/BM25 or re-ranking approach would address; it wasn't
-   implemented in this submission.
+3. **No lexical/keyword guarantee for unfiltered queries.** Dense retrieval alone has no mechanism
+   to force an exact card code like `8DC30T2` to matter more than semantically-similar-but-wrong
+   nearby text. Metadata filtering (Part E, implemented) fixes this only when the caller already
+   knows which shelf to restrict to; a general fix — re-ranking or hybrid BM25/embedding search,
+   Part E's other two options — was not implemented.
 4. **Scope is pages 47-166 only.** A question with a real answer elsewhere in the 1,568-page guide
    is correctly refused by this pipeline — the refusal means "not in the indexed pages," not "not
    in the document family."
@@ -254,9 +260,9 @@ Run it yourself with `uv run scripts/evaluate.py` (needs an LLM key) or
    line wrapped at a non-hyphen character (e.g. mid-slash in a shelf code list) is rejoined with a
    single space, which can occasionally introduce a spurious space inside what was one token in
    the original PDF. This doesn't affect any of the 8 evaluation answers.
-7. **Part E (stretch challenge) was not attempted** in this submission — out of scope for the
-   2-3 hour budget. The `shelf` metadata field and `retrieve(..., shelf_filter=...)` parameter
-   already exist as a starting hook if metadata filtering is picked up later.
+7. **Part E: only metadata filtering was attempted**, not re-ranking or hybrid search. See
+   [`docs/part-e-metadata-filtering.md`](docs/part-e-metadata-filtering.md) for what was built and
+   a verified before/after example (pinned by an automated regression test).
 
 ## Concepts (RAG & LLM background)
 

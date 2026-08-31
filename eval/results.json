@@ -1,0 +1,386 @@
+[
+  {
+    "number": 1,
+    "question": "How many slots does the 1830 PSS-8 shelf provide, and what is its rack-unit (RU) footprint?",
+    "expected_section": "2.2 1830 PSS-8 shelf",
+    "hit_at_k": true,
+    "top1_score": 0.7926510572433472,
+    "retrieved": [
+      {
+        "chunk_id": "c0059",
+        "section_path": "2 Shelves and common equipment/cards > 2.3 1830 PSS-16 shelf > 2.3.1 Introduction",
+        "page_start": 86,
+        "page_end": 86,
+        "score": 0.7926510572433472
+      },
+      {
+        "chunk_id": "c0063",
+        "section_path": "2 Shelves and common equipment/cards > 2.4 1830 PSS-16II shelf > 2.4.3 Slot numbering",
+        "page_start": 89,
+        "page_end": 90,
+        "score": 0.7392388582229614
+      },
+      {
+        "chunk_id": "c0053",
+        "section_path": "2 Shelves and common equipment/cards > 2.2 1830 PSS-8 shelf > 2.2.1 Introduction",
+        "page_start": 82,
+        "page_end": 82,
+        "score": 0.7346543073654175
+      },
+      {
+        "chunk_id": "c0062",
+        "section_path": "2 Shelves and common equipment/cards > 2.4 1830 PSS-16II shelf > 2.4.1 Introduction",
+        "page_start": 88,
+        "page_end": 89,
+        "score": 0.7187843322753906
+      },
+      {
+        "chunk_id": "c0071",
+        "section_path": "2 Shelves and common equipment/cards > 2.5 1830 PSS-32 shelf > 2.5.3 Slot numbering",
+        "page_start": 97,
+        "page_end": 99,
+        "score": 0.7150750160217285
+      }
+    ],
+    "prompt": "CONTEXT:\n[1] Section: 2.3.1 Introduction | Page: p. 86\n    Path: 2 Shelves and common equipment/cards > 2.3 1830 PSS-16 shelf > 2.3.1 Introduction\n    The 1830 PSS-16 shelf provides a 16-slot SWDM platform in 8-RU footprint. The shelf supports redundant control, redundant power and interfaces for management, maintenance, synchronization, and alarms. The 16 universal slots are arranged in two rows of 8, on either side of each other. There are 21 total slots, including slots for Equipment Controllers, Power Filters, and fans. For detailed specifications, such as physical design, weight and power consumption, refer to Chapter 7, “Technical specifications” Figure 2-8 1830 PSS-16 shelf\n\n[2] Section: 2.4.3 Slot numbering | Page: pp. 89-90\n    Path: 2 Shelves and common equipment/cards > 2.4 1830 PSS-16II shelf > 2.4.3 Slot numbering\n    The following rack types are supported: • 19-inch EIA rack • 21-inch ETSI rack • 23-inch ANSI rack Note: The horizontal aperture of the rack must be 450.85 mm (17.75 in). Racks with 444.5 mm (17.5 in) horizontal aperture are not supported. The 1830 PSS-16II shelf is partitioned into the following slot types: • 16 paired half height application cards (slots 3-10 and 13-20), or 8 full height application cards (slots 3-10) • 2 equipment controllers (EC) (slots 2 and 12) • 2 redundant power input filters (slots 1 and 11) • 1 user panel (slot 22) • 1 fan unit with dust filter (slot 21) All fibering and maintenance can be performed at the front of the chassis, allowing back-to-back installation in ETSI 300 mm cabinets. Refer to the 1830 Photonic Service Switch (PSS-16II) Release 23.6 Installation and System Turn-Up Guide for full details. The layout of the 1830 PSS-16II shelf and physical slot numbering is shown in the following figure: Figure 2-11 1830 PSS-16II shelf slot layout\n\n[3] Section: 2.2.1 Introduction | Page: p. 82\n    Path: 2 Shelves and common equipment/cards > 2.2 1830 PSS-8 shelf > 2.2.1 Introduction\n    The 1830 PSS-8 shelf provides an 8-slot SWDM platform in 3-RU footprint, with additional distributed switching functionality. 1830 PSS-8 can support up to four full-height or up to eight half-height universal I/O cards when that slot is also equipped with a half-slot adapter. The top of the shelf houses two Integrated shelf controllers and a shelf User panel. An additional User panel card can be installed when the protection EC is not installed in the main shelf. For detailed specifications, such as physical design, weight and power consumption, refer to Chapter 7, “Technical specifications” Figure 2-4 1830 PSS-8 shelf\n\n[4] Section: 2.4.1 Introduction | Page: pp. 88-89\n    Path: 2 Shelves and common equipment/cards > 2.4 1830 PSS-16II shelf > 2.4.1 Introduction\n    Refer to Table 5-2, “Slot ranges per card/shelf type ” (p. 1109) for the cards that are supported in the 1830 PSS-16 shelf. The 1830 PSS-16II shelf provides the second generation 16-slot SWDM platform in an 8-RU footprint (DC variant) or a 9-RU footprint (AC/DC variant), with additional distributed switching functionality. The 1830 PSS-16II can support up to 8 full-height or up to 16 half-height universal I/O cards when the slot is also equipped with a half-slot adapter. The shelf has two slots dedicated for Power Filter modules, and two slots dedicated for Integrated Shelf Controllers (EC). For detailed specifications, such as physical design, weight and power consumption, refer to Chapter 7, “Technical specifications” Figure 2-10 1830 PSS-16II shelf\n\n[5] Section: 2.5.3 Slot numbering | Page: pp. 97-99\n    Path: 2 Shelves and common equipment/cards > 2.5 1830 PSS-32 shelf > 2.5.3 Slot numbering\n    The following rack types are supported: • 19-inch EIA rack • ETSI rack • 23-inch ANSI rack Note: The horizontal aperture of the rack must be 450.85 mm (17.75 in). Racks with 444.5 mm (17.5 in) horizontal aperture are not supported. The 1830 PSS-32 shelf is partitioned into the following slot types: • 32 paired half height application cards, or 16 full height application cards • 2 equipment controllers (EC) • 2 redundant power input filters • 1 user panel • 1 fan unit All fibering and shelf maintenance can be performed at the front of the chassis, thus allowing back-to-back installation when mounted in ETSI 300 mm cabinets. Refer to1830 Photonic Service Switch (PSS-32) Release 23.6 Installation and System Turn-Up Guide for full details. The layout of the 1830 PSS-32 shelf and physical slot numbering are shown in the following figure Figure 2-16 1830 PSS-32 Shelf slot layout\n\nQUESTION: How many slots does the 1830 PSS-8 shelf provide, and what is its rack-unit (RU) footprint?\n\nAnswer using only the CONTEXT above, following all rules.",
+    "answer": "8 slots; 3-RU footprint [Section 2.2.1 Introduction, p. 82]",
+    "refused_by": null,
+    "auto_flag": "missing: 8-slot"
+  },
+  {
+    "number": 2,
+    "question": "What rack-unit footprint does the 1830 PSS-32 shelf have, and how many slots does it provide?",
+    "expected_section": "2.5 1830 PSS-32 shelf",
+    "hit_at_k": true,
+    "top1_score": 0.7517874836921692,
+    "retrieved": [
+      {
+        "chunk_id": "c0071",
+        "section_path": "2 Shelves and common equipment/cards > 2.5 1830 PSS-32 shelf > 2.5.3 Slot numbering",
+        "page_start": 97,
+        "page_end": 99,
+        "score": 0.7517874836921692
+      },
+      {
+        "chunk_id": "c0063",
+        "section_path": "2 Shelves and common equipment/cards > 2.4 1830 PSS-16II shelf > 2.4.3 Slot numbering",
+        "page_start": 89,
+        "page_end": 90,
+        "score": 0.7481026649475098
+      },
+      {
+        "chunk_id": "c0059",
+        "section_path": "2 Shelves and common equipment/cards > 2.3 1830 PSS-16 shelf > 2.3.1 Introduction",
+        "page_start": 86,
+        "page_end": 86,
+        "score": 0.7376561760902405
+      },
+      {
+        "chunk_id": "c0061",
+        "section_path": "2 Shelves and common equipment/cards > 2.3 1830 PSS-16 shelf > 2.3.3 Slot numbering",
+        "page_start": 87,
+        "page_end": 88,
+        "score": 0.6899813413619995
+      },
+      {
+        "chunk_id": "c0070",
+        "section_path": "2 Shelves and common equipment/cards > 2.5 1830 PSS-32 shelf > 2.5.1 Introduction",
+        "page_start": 96,
+        "page_end": 97,
+        "score": 0.6827940940856934
+      }
+    ],
+    "prompt": "CONTEXT:\n[1] Section: 2.5.3 Slot numbering | Page: pp. 97-99\n    Path: 2 Shelves and common equipment/cards > 2.5 1830 PSS-32 shelf > 2.5.3 Slot numbering\n    The following rack types are supported: • 19-inch EIA rack • ETSI rack • 23-inch ANSI rack Note: The horizontal aperture of the rack must be 450.85 mm (17.75 in). Racks with 444.5 mm (17.5 in) horizontal aperture are not supported. The 1830 PSS-32 shelf is partitioned into the following slot types: • 32 paired half height application cards, or 16 full height application cards • 2 equipment controllers (EC) • 2 redundant power input filters • 1 user panel • 1 fan unit All fibering and shelf maintenance can be performed at the front of the chassis, thus allowing back-to-back installation when mounted in ETSI 300 mm cabinets. Refer to1830 Photonic Service Switch (PSS-32) Release 23.6 Installation and System Turn-Up Guide for full details. The layout of the 1830 PSS-32 shelf and physical slot numbering are shown in the following figure Figure 2-16 1830 PSS-32 Shelf slot layout\n\n[2] Section: 2.4.3 Slot numbering | Page: pp. 89-90\n    Path: 2 Shelves and common equipment/cards > 2.4 1830 PSS-16II shelf > 2.4.3 Slot numbering\n    The following rack types are supported: • 19-inch EIA rack • 21-inch ETSI rack • 23-inch ANSI rack Note: The horizontal aperture of the rack must be 450.85 mm (17.75 in). Racks with 444.5 mm (17.5 in) horizontal aperture are not supported. The 1830 PSS-16II shelf is partitioned into the following slot types: • 16 paired half height application cards (slots 3-10 and 13-20), or 8 full height application cards (slots 3-10) • 2 equipment controllers (EC) (slots 2 and 12) • 2 redundant power input filters (slots 1 and 11) • 1 user panel (slot 22) • 1 fan unit with dust filter (slot 21) All fibering and maintenance can be performed at the front of the chassis, allowing back-to-back installation in ETSI 300 mm cabinets. Refer to the 1830 Photonic Service Switch (PSS-16II) Release 23.6 Installation and System Turn-Up Guide for full details. The layout of the 1830 PSS-16II shelf and physical slot numbering is shown in the following figure: Figure 2-11 1830 PSS-16II shelf slot layout\n\n[3] Section: 2.3.1 Introduction | Page: p. 86\n    Path: 2 Shelves and common equipment/cards > 2.3 1830 PSS-16 shelf > 2.3.1 Introduction\n    The 1830 PSS-16 shelf provides a 16-slot SWDM platform in 8-RU footprint. The shelf supports redundant control, redundant power and interfaces for management, maintenance, synchronization, and alarms. The 16 universal slots are arranged in two rows of 8, on either side of each other. There are 21 total slots, including slots for Equipment Controllers, Power Filters, and fans. For detailed specifications, such as physical design, weight and power consumption, refer to Chapter 7, “Technical specifications” Figure 2-8 1830 PSS-16 shelf\n\n[4] Section: 2.3.3 Slot numbering | Page: pp. 87-88\n    Path: 2 Shelves and common equipment/cards > 2.3 1830 PSS-16 shelf > 2.3.3 Slot numbering\n    The layout of the 1830 PSS-16 shelf and physical slot numbering are shown in the following figure. Figure 2-9 1830 PSS-16 shelf slot layout 1830 PSS-16 The 1830 PSS-16 shelf supports: • 16 paired half height application cards (slots 3-10 and 13-20) or 8 full height application cards (slots 2-10) • 2 equipment controllers (EC) (slots 2 and 12) • 2 redundant power input filters (slot 1 and 11) • 1 user panel (occupies one of the paired application card slots) • 1 fan unit (slot 21) Slot 10 (including half-width slot 11) at the top of the shelf holds the user interface panel on shelves that are used as main shelves. On shelves used for extension shelves, slot 10 can be used as a function card slot; see Figure 2-9, “1830 PSS-16 shelf slot layout” (p. 87). The fan unit located at the bottom of the shelf in slot 21, drives cooling air from right to left across the cards deployed in the shelf. All fibering and maintenance can be performed at the front of the chassis, allowing back-to-back installation in ETSI 300 mm cabinets. (See 1830 Photonic Service Switch (PSS-32) Release 23.6 Installation and System Turn-Up Guide for full details.)\n\n[5] Section: 2.5.1 Introduction | Page: pp. 96-97\n    Path: 2 Shelves and common equipment/cards > 2.5 1830 PSS-32 shelf > 2.5.1 Introduction\n    The 1830 PSS-32 shelf provides a 32-slot high-capacity and high-scalability core SWDM platform in 14-RU footprint. The 1830 PSS-32 can support up to thirty two full-height or up to sixteen half-height universal I/O cards when that slot is also equipped with a half-slot adapter (HSLAD). In addition slots for two power filters, two controller cards are supported. The top of the shelf houses a fan unit for cooling and a customer interface panel. For detailed specifications, such as physical design, weight and power consumption, refer to Chapter 7, “Technical specifications” Figure 2-15 1830 PSS-32 shelf\n\nQUESTION: What rack-unit footprint does the 1830 PSS-32 shelf have, and how many slots does it provide?\n\nAnswer using only the CONTEXT above, following all rules.",
+    "answer": "14-RU footprint; 32 slots [Section 2.5.1 Introduction, pp. 96-97]",
+    "refused_by": null,
+    "auto_flag": "missing: 32-slot"
+  },
+  {
+    "number": 3,
+    "question": "What are the two software load-lines supported by the 1830 PSS system?",
+    "expected_section": "1.1 Overview",
+    "hit_at_k": true,
+    "top1_score": 0.6065881252288818,
+    "retrieved": [
+      {
+        "chunk_id": "c0001",
+        "section_path": "1 System concept > 1.1 Overview > 1.1.1 Purpose",
+        "page_start": 47,
+        "page_end": 47,
+        "score": 0.6065881252288818
+      },
+      {
+        "chunk_id": "c0121",
+        "section_path": "2 Shelves and common equipment/cards > 2.13 1830 PSS and 1830 TDMX/TDMXC networks > 2.13.5 1830 TDMX/TDMXC drop shelf with single-node management",
+        "page_start": 140,
+        "page_end": 140,
+        "score": 0.5160136222839355
+      },
+      {
+        "chunk_id": "c0107",
+        "section_path": "2 Shelves and common equipment/cards > 2.11 Operation, administration, and maintenance > 2.11.3 Transaction Language 1 (TL1)",
+        "page_start": 129,
+        "page_end": 129,
+        "score": 0.5072834491729736
+      },
+      {
+        "chunk_id": "c0017",
+        "section_path": "1 System concept > 1.2 System configuration > 1.2.6 Node Scalability",
+        "page_start": 58,
+        "page_end": 59,
+        "score": 0.5008054971694946
+      },
+      {
+        "chunk_id": "c0056",
+        "section_path": "2 Shelves and common equipment/cards > 2.2 1830 PSS-8 shelf > 2.2.5 Backplane",
+        "page_start": 83,
+        "page_end": 84,
+        "score": 0.49528753757476807
+      }
+    ],
+    "prompt": "CONTEXT:\n[1] Section: 1.1.1 Purpose | Page: p. 47\n    Path: 1 System concept > 1.1 Overview > 1.1.1 Purpose\n    This section provides an overview of 1830 Photonic Service Switch (PSS) product family, describing the configurations, system profile and network solutions of the system. This document focuses on the support of 1830 PSS-8, 1830 PSS-16, 1830 PSS-16II, 1830 PSS-32, 1830 PSI-4L and 1830 PSI-8L. The shelves 1830 PSS-36, 1830 PSS-64 and 1830 PSS-8x/12x/24x are contained in this document in some general descriptions, for example in configurations, as they are used to build cluster configurations. Refer to 1830 Photonic Service Switch (PSS-4) Release 23.6 Product Information and Planning Guide, 1830 Photonic Service Switch (PSS-36/PSS-64) Release 14.1 Product Information and Planning Guide and 1830 Photonic Service Switch (PSS-8x/ PSS-12x/PSS-24x) Release 23.6 Product Information and Planning Guide for detailed feature support on the other shelf types of the product family. The system supports two software load-lines: SWDM software and OCS software. Each software load-line may support only a subset of the shelves. In order to indicate under which software load-line a shelf is operated, the shelf name is followed by the load-line name in brackets: PSS-xy (SWDM) or PSS-xy (OCS).\n\n[2] Section: 2.13.5 1830 TDMX/TDMXC drop shelf with single-node management | Page: p. 140\n    Path: 2 Shelves and common equipment/cards > 2.13 1830 PSS and 1830 TDMX/TDMXC networks > 2.13.5 1830 TDMX/TDMXC drop shelf with single-node management\n    This feature supports the integration of an 1830 PSS-32/PSS-16/PSS-16II/PSS-8 shelf with a 1646 SM/SMC shelf. The following aspects are supported in this integration: • DCN and transmission interworking between 1830 PSS-8 (4DPA4, 11DPM12) and 1646 SM/ SMC • DCN and transmission interworking between 1830 PSS-16II (4DPA4, 11DPM12) and 1646 SM/ SMC • PSS-32 11DPM8 transmission interworking with 1646 SM/SMC • PSS-8/PSS-16II 11DPM8 transmission interworking with 1646 SM/SMC The following 1830 PSS shelves are required to integrate with TDMX/TDMXC: • PSS-16 • PSS-32 The following OT cards are required on 1830 PSS for interworking: • 11DPM8 (PSS-32/PSS-8/PSS-16II) • 4DPA4 (PSS-32/PSS-16/PSS-8/PSS-16II) • 11DPM12 (PSS-32/PSS-16/PSS-8/PSS-16II)\n\n[3] Section: 2.11.3 Transaction Language 1 (TL1) | Page: p. 129\n    Path: 2 Shelves and common equipment/cards > 2.11 Operation, administration, and maintenance > 2.11.3 Transaction Language 1 (TL1)\n    The 1830 PSS NE supports a range of management interfaces: • Simple Network Management Protocol (SNMP) • Transaction Language 1 (TL1) • WebUI interface • Command Line Interface (CLI) The 1830 PSS system supports the following SNMP functions: • Provisioning interface for all equipment and parameters through SNMPv3. • Reporting of all alarms/traps and ability to define trap destination. The 1830 PSS system supports a TL1 command interface for all provisioning, reporting, and alarming. TL1 is supported for the following OT cards: • D5X500(Q) • S13X100R • S2AD200H\n\n[4] Section: 1.2.6 Node Scalability | Page: pp. 58-59\n    Path: 1 System concept > 1.2 System configuration > 1.2.6 Node Scalability\n    managed by the main NE. Flexible combinations of main NEs and tributary NEs are supported in a cluster. With the flexible combinations, the role of being either Main NE or a tributary NE can vary on an OT port basis. The 1830 PSS system supports the following features: • 1:N configuration with one main NE and up to three tributary NEs • More than one OCS NE can be managed by one SWDM main NE for auto power management. This allows to combine three or more 1830 PSS systems to one larger entity that can be power managed. • A cluster configuration supports off-grid tuning (FlexGrid phase 2) of the central frequency of 1830 PSS-36/1830 PSS-64 uplinks. This enables the tuning over 12.5GHz of uplinks located on OCS NEs in a cluster configuration. Off-grid tuning is also supported in most SWDM cluster configurations. • OTs supporting cluster configurations: − D5X500 − D5X500Q − D5X500L − 11DPM12 − 130SCX10 − 130SNX10 − 130SCA1 − 260SCX2 − 20P200 − 8P20 − 12P120 − 11QPA4 − 11QPA4B − 11QCE12X − 20UC200 − 1UD200 − 2UC400 − 4UC400 − 11DPM8 − 11OPE8 − S13X100R − S13X100E (w/o encryption) S13X100L − S2AD200H − S2AD200R − S4X400H − 1UX100 − 20AX200 − 20MX80 − 2UX200 − S5AD400H − S6AD600H • Special handling of eVOA ports on\n\n[5] Section: 2.2.5 Backplane | Page: pp. 83-84\n    Path: 2 Shelves and common equipment/cards > 2.2 1830 PSS-8 shelf > 2.2.5 Backplane\n    Refer to Table 5-2, “Slot ranges per card/shelf type ” (p. 1109) for the cards that are supported in the 1830 PSS-8 shelf. The 1830 PSS-8 backplane delivers 100Gb/s of transmission bandwidth from each I/O slot to the correlative slots in the shelf. Controllers on the EC cards are connected to the I/O slots by 100Mb/s Ethernet links configured in a redundant star network. Various serial buses complete the control plane to handle the infrastructure functions. The 1830 PSS-8 backplane is compatible with the 1830 PSS-32/16 shelves, therefore all cards designed for 1830 PSS-32/16 shelves can be supported on 1830 PSS-8/16II shelves. Figure 2-6 1830 PSS-8 backplane high-speed connection Legend: Red arrow N-N+3 connection Blue arrow N-N+1 connection Yellow arrow N-N+2 connection Light blue arrow 11OPE8 & 11QCE12X Mate Port backplane connectivity\n\nQUESTION: What are the two software load-lines supported by the 1830 PSS system?\n\nAnswer using only the CONTEXT above, following all rules.",
+    "answer": "SWDM software and OCS software. [Section 1.1.1 Purpose, p. 47]",
+    "refused_by": null,
+    "auto_flag": "keywords present"
+  },
+  {
+    "number": 4,
+    "question": "Which fan units are supported on the 1830 PSS-32 shelf?",
+    "expected_section": "2.18 PSS-32 Fan Units",
+    "hit_at_k": true,
+    "top1_score": 0.7534130811691284,
+    "retrieved": [
+      {
+        "chunk_id": "c0124",
+        "section_path": "2 Shelves and common equipment/cards > 2.15 PSS-8 Fan Unit (8FAN) > 2.15.2 Fan unit replacement",
+        "page_start": 142,
+        "page_end": 142,
+        "score": 0.7534130811691284
+      },
+      {
+        "chunk_id": "c0132",
+        "section_path": "2 Shelves and common equipment/cards > 2.16 PSS-16 Fan Unit (FAN16) > 2.16.2 Fan unit replacement",
+        "page_start": 147,
+        "page_end": 147,
+        "score": 0.7208534479141235
+      },
+      {
+        "chunk_id": "c0135",
+        "section_path": "2 Shelves and common equipment/cards > 2.17 PSS-16II Fan Unit (16FAN2 and 16FAN2C) > 2.17.3 Front view",
+        "page_start": 149,
+        "page_end": 149,
+        "score": 0.720262885093689
+      },
+      {
+        "chunk_id": "c0070",
+        "section_path": "2 Shelves and common equipment/cards > 2.5 1830 PSS-32 shelf > 2.5.1 Introduction",
+        "page_start": 96,
+        "page_end": 97,
+        "score": 0.7151801586151123
+      },
+      {
+        "chunk_id": "c0139",
+        "section_path": "2 Shelves and common equipment/cards > 2.18 PSS-32 Fan Units (FAN and FAN32H) > 2.18.2 Fan unit replacement",
+        "page_start": 151,
+        "page_end": 151,
+        "score": 0.6969645023345947
+      }
+    ],
+    "prompt": "CONTEXT:\n[1] Section: 2.15.2 Fan unit replacement | Page: p. 142\n    Path: 2 Shelves and common equipment/cards > 2.15 PSS-8 Fan Unit (8FAN) > 2.15.2 Fan unit replacement\n    In the 1830 PSS-8 the fan unit is located in slot 14 of the shelf. The 1830 PSS-8 fan unit contains twelve powerful FAN modules, each individually monitored and speed-controlled by network element (NE) software. Note: The maximum power for 8FAN at -40C can be 120W when FAN is set to maximum speed. When replacing the fan unit in an 1830 PSS-8 shelf, the only fan unit that supplies cooling air for the shelf is removed. The fan unit replacement is a simple procedure that can be accomplished in as little as 15 seconds.\n\n[2] Section: 2.16.2 Fan unit replacement | Page: p. 147\n    Path: 2 Shelves and common equipment/cards > 2.16 PSS-16 Fan Unit (FAN16) > 2.16.2 Fan unit replacement\n    The 1830 PSS-16 the fan unit is located at the bottom of the shelf. The fan unit contains 5 powerful FAN modules, each individually monitored and speed-controlled by network element (NE) software. When replacing the fan unit in an 1830 PSS-16 shelf, the only fan unit that supplies cooling air for the shelf is removed. The fan unit replacement is a simple procedure that can be accomplished in as little as 10 seconds. The fan unit replacement should be completed within 60 seconds. Refer to the 1830 Photonic Service Switch (PSS) Release 23.6 Maintenance and Trouble-Clearing Guide for detailed instructions.\n\n[3] Section: 2.17.3 Front view | Page: p. 149\n    Path: 2 Shelves and common equipment/cards > 2.17 PSS-16II Fan Unit (16FAN2 and 16FAN2C) > 2.17.3 Front view\n    When replacing the fan unit in an 1830 PSS-16II shelf, the only fan unit that supplies cooling air for the shelf is removed. The fan unit replacement is a simple procedure that can be accomplished in as little as 15 seconds. Refer to the 1830 Photonic Service Switch (PSS) Release 23.6 Maintenance and Trouble-Clearing Guide for detailed instructions. Figure 2-33 PSS-16II Fan unit faceplate\n\n[4] Section: 2.5.1 Introduction | Page: pp. 96-97\n    Path: 2 Shelves and common equipment/cards > 2.5 1830 PSS-32 shelf > 2.5.1 Introduction\n    The 1830 PSS-32 shelf provides a 32-slot high-capacity and high-scalability core SWDM platform in 14-RU footprint. The 1830 PSS-32 can support up to thirty two full-height or up to sixteen half-height universal I/O cards when that slot is also equipped with a half-slot adapter (HSLAD). In addition slots for two power filters, two controller cards are supported. The top of the shelf houses a fan unit for cooling and a customer interface panel. For detailed specifications, such as physical design, weight and power consumption, refer to Chapter 7, “Technical specifications” Figure 2-15 1830 PSS-32 shelf\n\n[5] Section: 2.18.2 Fan unit replacement | Page: p. 151\n    Path: 2 Shelves and common equipment/cards > 2.18 PSS-32 Fan Units (FAN and FAN32H) > 2.18.2 Fan unit replacement\n    In the 1830 PSS-32 the fan unit is located directly above the function card slots. The 1830 PSS-32 fan unit contains three powerful FAN modules, each individually monitored and speed-controlled by network element (NE) software. When replacing the fan unit in an 1830 PSS-32 shelf, the only fan unit that supplies cooling air for the shelf is removed. The fan unit replacement is a simple procedure that can be accomplished in as little as 10 seconds. If the 1830 PSS-32 shelf is equipped with cards that dissipate: • ≤100W per slot, the fan unit replacement should be completed within 2 minutes. • >100W per slot and the ambient temperature is ≤25°C (77°F), the fan unit replacement should be completed within 60 seconds. • >100W per slot and the ambient temperature is >25°C (77°F), the fan unit replacement should be completed within 30 seconds. Note: Preparation time and reinstallation time (for loosening/tightening mounting screws) are not included in the time intervals stated. Refer to the Max column in Table 7-65, “Weight and power consumption for 1830 PSS” (p. 1492) for the power consumption specifications per card. Note: Some cards occupy more than one slot. Refer to the 1830 Photonic Service Switch (PSS) Release 23.6 Maintenance and Trouble-Clearing Guide for detailed instructions.\n\nQUESTION: Which fan units are supported on the 1830 PSS-32 shelf?\n\nAnswer using only the CONTEXT above, following all rules.",
+    "answer": "FAN and FAN32H [Section 2.18.2 Fan unit replacement, p. 151]",
+    "refused_by": null,
+    "auto_flag": "keywords present"
+  },
+  {
+    "number": 5,
+    "question": "Which fan unit(s) are used on the 1830 PSS-16II shelf?",
+    "expected_section": "2.17 PSS-16II Fan Unit",
+    "hit_at_k": true,
+    "top1_score": 0.7992658615112305,
+    "retrieved": [
+      {
+        "chunk_id": "c0135",
+        "section_path": "2 Shelves and common equipment/cards > 2.17 PSS-16II Fan Unit (16FAN2 and 16FAN2C) > 2.17.3 Front view",
+        "page_start": 149,
+        "page_end": 149,
+        "score": 0.7992658615112305
+      },
+      {
+        "chunk_id": "c0132",
+        "section_path": "2 Shelves and common equipment/cards > 2.16 PSS-16 Fan Unit (FAN16) > 2.16.2 Fan unit replacement",
+        "page_start": 147,
+        "page_end": 147,
+        "score": 0.7953029870986938
+      },
+      {
+        "chunk_id": "c0134",
+        "section_path": "2 Shelves and common equipment/cards > 2.17 PSS-16II Fan Unit (16FAN2 and 16FAN2C) > 2.17.1 Overview",
+        "page_start": 148,
+        "page_end": 149,
+        "score": 0.7582241296768188
+      },
+      {
+        "chunk_id": "c0124",
+        "section_path": "2 Shelves and common equipment/cards > 2.15 PSS-8 Fan Unit (8FAN) > 2.15.2 Fan unit replacement",
+        "page_start": 142,
+        "page_end": 142,
+        "score": 0.756243109703064
+      },
+      {
+        "chunk_id": "c0145",
+        "section_path": "2 Shelves and common equipment/cards > 2.19 1830 PSI-L shelf FAN unit (PSILFAN) > 2.19.5 Location",
+        "page_start": 156,
+        "page_end": 156,
+        "score": 0.7086347341537476
+      }
+    ],
+    "prompt": "CONTEXT:\n[1] Section: 2.17.3 Front view | Page: p. 149\n    Path: 2 Shelves and common equipment/cards > 2.17 PSS-16II Fan Unit (16FAN2 and 16FAN2C) > 2.17.3 Front view\n    When replacing the fan unit in an 1830 PSS-16II shelf, the only fan unit that supplies cooling air for the shelf is removed. The fan unit replacement is a simple procedure that can be accomplished in as little as 15 seconds. Refer to the 1830 Photonic Service Switch (PSS) Release 23.6 Maintenance and Trouble-Clearing Guide for detailed instructions. Figure 2-33 PSS-16II Fan unit faceplate\n\n[2] Section: 2.16.2 Fan unit replacement | Page: p. 147\n    Path: 2 Shelves and common equipment/cards > 2.16 PSS-16 Fan Unit (FAN16) > 2.16.2 Fan unit replacement\n    The 1830 PSS-16 the fan unit is located at the bottom of the shelf. The fan unit contains 5 powerful FAN modules, each individually monitored and speed-controlled by network element (NE) software. When replacing the fan unit in an 1830 PSS-16 shelf, the only fan unit that supplies cooling air for the shelf is removed. The fan unit replacement is a simple procedure that can be accomplished in as little as 10 seconds. The fan unit replacement should be completed within 60 seconds. Refer to the 1830 Photonic Service Switch (PSS) Release 23.6 Maintenance and Trouble-Clearing Guide for detailed instructions.\n\n[3] Section: 2.17.1 Overview | Page: pp. 148-149\n    Path: 2 Shelves and common equipment/cards > 2.17 PSS-16II Fan Unit (16FAN2 and 16FAN2C) > 2.17.1 Overview\n    Figure 2-32 1830 PSS-16 fan unit For information on the LED on the front panel of the FAN unit, see 2.34 “LEDs of the Fan Unit” (p. 249). The Fan Unit (FAN16) is mounted at position 21 below the user panel and at the top of the PDF unit, found at the bottom of the 1830 PSS-16 shelf. The PSS-16II FAN card provides the power that the FAN motors need and the related control signals. A local microcontroller configures and monitors its associated fan motor.\n\n[4] Section: 2.15.2 Fan unit replacement | Page: p. 142\n    Path: 2 Shelves and common equipment/cards > 2.15 PSS-8 Fan Unit (8FAN) > 2.15.2 Fan unit replacement\n    In the 1830 PSS-8 the fan unit is located in slot 14 of the shelf. The 1830 PSS-8 fan unit contains twelve powerful FAN modules, each individually monitored and speed-controlled by network element (NE) software. Note: The maximum power for 8FAN at -40C can be 120W when FAN is set to maximum speed. When replacing the fan unit in an 1830 PSS-8 shelf, the only fan unit that supplies cooling air for the shelf is removed. The fan unit replacement is a simple procedure that can be accomplished in as little as 15 seconds.\n\n[5] Section: 2.19.5 Location | Page: p. 156\n    Path: 2 Shelves and common equipment/cards > 2.19 1830 PSI-L shelf FAN unit (PSILFAN) > 2.19.5 Location\n    The front view of the 1830 PSI-4L/PSI-8L shelf PSILFAN unit is shown in the following figure. Legend: 1 Status LED Fan handle (for insertion/removal) 3 Fan plunger (for insertion/removal) Table 2-6 1830 PSI-4L/PSI-8L shelf PSILFAN status LED Color Function Green Normal operation Red Fan failure The PSILFAN units are mounted in slots FAN 1 and FAN 2 in the 1830 PSI-4L shelf. The PSILFAN units are mounted in slots FAN 1, FAN 2 and FAN 3 of the 1830 PSI-8L shelf.\n\nQUESTION: Which fan unit(s) are used on the 1830 PSS-16II shelf?\n\nAnswer using only the CONTEXT above, following all rules.",
+    "answer": "16FAN2 and 16FAN2C [Section 2.17.3 Front view, p. 149]",
+    "refused_by": null,
+    "auto_flag": "keywords present"
+  },
+  {
+    "number": 6,
+    "question": "Name the power filter cards supported on the 1830 PSS-8 shelf.",
+    "expected_section": "2.20 PSS-8 Power filter cards",
+    "hit_at_k": true,
+    "top1_score": 0.793630838394165,
+    "retrieved": [
+      {
+        "chunk_id": "c0151",
+        "section_path": "2 Shelves and common equipment/cards > 2.20 PSS-8 Power filter cards (8DC30, 8DC30T, 8DC30T2, 8AC7) > 2.20.5 Location",
+        "page_start": 160,
+        "page_end": 160,
+        "score": 0.793630838394165
+      },
+      {
+        "chunk_id": "c0156",
+        "section_path": "2 Shelves and common equipment/cards > 2.21 PSS-16II Power filter cards (16DC65, 16DC65T, 16AC16) > 2.21.1 Overview",
+        "page_start": 163,
+        "page_end": 164,
+        "score": 0.7266004681587219
+      },
+      {
+        "chunk_id": "c0150",
+        "section_path": "2 Shelves and common equipment/cards > 2.20 PSS-8 Power filter cards (8DC30, 8DC30T, 8DC30T2, 8AC7) > 2.20.3 PFs 8DC30 and 8DC30T/8DC30T2 front view",
+        "page_start": 159,
+        "page_end": 159,
+        "score": 0.7202165126800537
+      },
+      {
+        "chunk_id": "c0160",
+        "section_path": "2 Shelves and common equipment/cards > 2.22 PSS-32 and PSS-16 Power filter cards (PFs) > 2.22.3 Front view",
+        "page_start": 165,
+        "page_end": 166,
+        "score": 0.7133783102035522
+      },
+      {
+        "chunk_id": "c0058",
+        "section_path": "2 Shelves and common equipment/cards > 2.2 1830 PSS-8 shelf > 2.2.7 1830 PSS-8 railway application and power substation application",
+        "page_start": 84,
+        "page_end": 85,
+        "score": 0.7116776704788208
+      }
+    ],
+    "prompt": "CONTEXT:\n[1] Section: 2.20.5 Location | Page: p. 160\n    Path: 2 Shelves and common equipment/cards > 2.20 PSS-8 Power filter cards (8DC30, 8DC30T, 8DC30T2, 8AC7) > 2.20.5 Location\n    Figure 2-38 8AC7 faceplate Legend: 1 EPS LED: for active/standby indication of the timing card Card status LED 3 AC power connector with integrated ON/OFF switch In the 1830 PSS-8 shelf, the Power Filter Cards (PF) are mounted in slots 1 (PF_A) and 7 (PF_B), at the bottom of the shelf. Each AC card 8AC7 occupies 2 slots: 1 and 2, or 7 and 8.\n\n[2] Section: 2.21.1 Overview | Page: pp. 163-164\n    Path: 2 Shelves and common equipment/cards > 2.21 PSS-16II Power filter cards (16DC65, 16DC65T, 16AC16) > 2.21.1 Overview\n    for a multiframe (64K basic frames). PF (16AC16) front view The faceplate of PSS-16II power filter card (16AC16) is shown in the following figure: Figure 2-40 16AC16 faceplate Legend: 1 Card status LED \"STAT\" CRU equipment protection status LED \"EPS\" Power connector that can support up to 20A/250Vac, 20A/125Vac 3 2-pole switch that can support up to 20A/250Vac, 20A/125Vac 4 Power present LED \"Power Feed\" The label “Power on sequence: plug in this card, connect cable, turn on power source, turn on switch. Power off sequence: turn off switch, turn off power source, disconnect cable, plug out this card.” is printed on PF-AC faceplate. Location In the 1830 PSS-16II shelf, the Power Filter Cards (PF) are mounted in slots 1 (PF_A) and 11 (PF_ B).\n\n[3] Section: 2.20.3 PFs 8DC30 and 8DC30T/8DC30T2 front view | Page: p. 159\n    Path: 2 Shelves and common equipment/cards > 2.20 PSS-8 Power filter cards (8DC30, 8DC30T, 8DC30T2, 8AC7) > 2.20.3 PFs 8DC30 and 8DC30T/8DC30T2 front view\n    8DC30/8DC30T/8D30T2 have the following external interfaces on the faceplate: • Power connector: DB3 • Card status LED • Power present LED (>35 V) and its label • Voltage measurement points and its label Appropriate cables are provided with ETSI and ANSI installation kits. The details are shown in the 1830 PSS Installation and System Turn-Up Guide (ITG). The faceplates of PSS-8 Power Filter Cards (8DC30 and 8AC7) without voltage monitoring capability are shown in the following figures: Figure 2-37 8DC30/8DC30T/8DC30T2 faceplate (without voltage monitoring) Legend: 1 Card status LED Power present LED (> 35V) 3 DB3 Power connector 4 and 5 Voltage measurement points 6 EPS LED: for active/standby indication of the timing card\n\n[4] Section: 2.22.3 Front view | Page: pp. 165-166\n    Path: 2 Shelves and common equipment/cards > 2.22 PSS-32 and PSS-16 Power filter cards (PFs) > 2.22.3 Front view\n    The power filters (PFs) for the 1830 PSS-32 and 1830 PSS-16 shelves have a single power cable connector on the faceplate. Appropriate cables are provided with ETSI and ANSI installation kits. The details are shown in the 1830 PSS Installation and System Turn-Up Guide (ITG). The front of a PSS-32 and PSS-16 Power Filter Card (PF) without voltage monitoring capability is shown in the following figure: Figure 2-41 PF faceplate (without voltage monitoring) The front of the PSS-32 and PSS-16 Power Filter Card (PF) with voltage monitoring capability is shown in the following figure: Figure 2-42 PF faceplate (with voltage monitoring)\n\n[5] Section: 2.2.7 1830 PSS-8 railway application and power substation application | Page: pp. 84-85\n    Path: 2 Shelves and common equipment/cards > 2.2 1830 PSS-8 shelf > 2.2.7 1830 PSS-8 railway application and power substation application\n    The following graphic shows the details related to the configuration of the AC/DC rectifiers for 1830 PSS-8: Figure 2-7 AC/DC rectifier configuration details 1830 PSS-8 supports the compliance of IEC 62236-4 and EN 50121-4 for railway application and IEC 61000-6-5 and IEEE 1613 for power substation application in the 1830 PSS-8shelf with the following cards in AC/DC power configuration: • OT cards: 11QPEN4, 12P120, 11DPM8, 11DPE12A, 11QCE12X, 4QPA8 • OA cards: AM2125A, AHPHG, AHPLG • Optical filter cards: SFD8, SFC8 Note: 1. For DC power configuration, the version B 8DC30 power filter shall be used (3KC48870AB). 2. 1830 PSS-8 system is in compliance with IEEE 1613 with the exception of -38.4V low voltage support. 1830 PSS-8 system supports up to -39V low voltage shut down.\n\nQUESTION: Name the power filter cards supported on the 1830 PSS-8 shelf.\n\nAnswer using only the CONTEXT above, following all rules.",
+    "answer": "- 8DC30  \n- 8DC30T  \n- 8DC30T2  \n- 8AC7 [Section 2.20.5 Location, p. 160]",
+    "refused_by": null,
+    "auto_flag": "keywords present"
+  },
+  {
+    "number": 7,
+    "question": "What is the required horizontal rack aperture for mounting a 1830 PSS-8 shelf, and which common aperture size is explicitly NOT supported?",
+    "expected_section": "2.2 1830 PSS-8 shelf",
+    "hit_at_k": true,
+    "top1_score": 0.766579270362854,
+    "retrieved": [
+      {
+        "chunk_id": "c0054",
+        "section_path": "2 Shelves and common equipment/cards > 2.2 1830 PSS-8 shelf > 2.2.2 Rack mounting options",
+        "page_start": 82,
+        "page_end": 82,
+        "score": 0.766579270362854
+      },
+      {
+        "chunk_id": "c0063",
+        "section_path": "2 Shelves and common equipment/cards > 2.4 1830 PSS-16II shelf > 2.4.3 Slot numbering",
+        "page_start": 89,
+        "page_end": 90,
+        "score": 0.677165150642395
+      },
+      {
+        "chunk_id": "c0071",
+        "section_path": "2 Shelves and common equipment/cards > 2.5 1830 PSS-32 shelf > 2.5.3 Slot numbering",
+        "page_start": 97,
+        "page_end": 99,
+        "score": 0.6632335186004639
+      },
+      {
+        "chunk_id": "c0060",
+        "section_path": "2 Shelves and common equipment/cards > 2.3 1830 PSS-16 shelf > 2.3.2 Rack mounting options",
+        "page_start": 86,
+        "page_end": 87,
+        "score": 0.6595058441162109
+      },
+      {
+        "chunk_id": "c0068",
+        "section_path": "2 Shelves and common equipment/cards > 2.4 1830 PSS-16II shelf > 2.4.7 1830 PSS-16II shelf with support for integrated AC or DC power supply",
+        "page_start": 93,
+        "page_end": 95,
+        "score": 0.5913227200508118
+      }
+    ],
+    "prompt": "CONTEXT:\n[1] Section: 2.2.2 Rack mounting options | Page: p. 82\n    Path: 2 Shelves and common equipment/cards > 2.2 1830 PSS-8 shelf > 2.2.2 Rack mounting options\n    The following rack types are supported: • 19-inch EIA rack • ETSI rack • 23-inch ANSI rack Note: When installing on ETSI rack, air deflector 3KC50248AB can be used. For more details, refer 1830 Photonic Service Switch (PSS) Installation and System Turn-Up Guide. Note: The horizontal aperture of the rack must be 450.85 mm (17.75 in). Racks with 444.5 mm (17.5 in) horizontal aperture are not supported.\n\n[2] Section: 2.4.3 Slot numbering | Page: pp. 89-90\n    Path: 2 Shelves and common equipment/cards > 2.4 1830 PSS-16II shelf > 2.4.3 Slot numbering\n    The following rack types are supported: • 19-inch EIA rack • 21-inch ETSI rack • 23-inch ANSI rack Note: The horizontal aperture of the rack must be 450.85 mm (17.75 in). Racks with 444.5 mm (17.5 in) horizontal aperture are not supported. The 1830 PSS-16II shelf is partitioned into the following slot types: • 16 paired half height application cards (slots 3-10 and 13-20), or 8 full height application cards (slots 3-10) • 2 equipment controllers (EC) (slots 2 and 12) • 2 redundant power input filters (slots 1 and 11) • 1 user panel (slot 22) • 1 fan unit with dust filter (slot 21) All fibering and maintenance can be performed at the front of the chassis, allowing back-to-back installation in ETSI 300 mm cabinets. Refer to the 1830 Photonic Service Switch (PSS-16II) Release 23.6 Installation and System Turn-Up Guide for full details. The layout of the 1830 PSS-16II shelf and physical slot numbering is shown in the following figure: Figure 2-11 1830 PSS-16II shelf slot layout\n\n[3] Section: 2.5.3 Slot numbering | Page: pp. 97-99\n    Path: 2 Shelves and common equipment/cards > 2.5 1830 PSS-32 shelf > 2.5.3 Slot numbering\n    The following rack types are supported: • 19-inch EIA rack • ETSI rack • 23-inch ANSI rack Note: The horizontal aperture of the rack must be 450.85 mm (17.75 in). Racks with 444.5 mm (17.5 in) horizontal aperture are not supported. The 1830 PSS-32 shelf is partitioned into the following slot types: • 32 paired half height application cards, or 16 full height application cards • 2 equipment controllers (EC) • 2 redundant power input filters • 1 user panel • 1 fan unit All fibering and shelf maintenance can be performed at the front of the chassis, thus allowing back-to-back installation when mounted in ETSI 300 mm cabinets. Refer to1830 Photonic Service Switch (PSS-32) Release 23.6 Installation and System Turn-Up Guide for full details. The layout of the 1830 PSS-32 shelf and physical slot numbering are shown in the following figure Figure 2-16 1830 PSS-32 Shelf slot layout\n\n[4] Section: 2.3.2 Rack mounting options | Page: pp. 86-87\n    Path: 2 Shelves and common equipment/cards > 2.3 1830 PSS-16 shelf > 2.3.2 Rack mounting options\n    The following rack types are supported: • 300-mm ETSI One Rack (ETSI market): 2200 mm (7.2 ft) × 600 mm (23.6 in) × 300 mm (11.8 in) (H × W × D) • 7-feet Seismic Network Rack frame rack (ANSI market): 2133.6 mm (7 ft) × 584.2 mm (23 in) × 304.8 mm (12 in) (H × W × D) • 19-inch ADC rack: 2133.6 mm (7 ft) × 490.2 mm (19 in) × 304.8 mm (12 in) (H × W × D) Note: The horizontal aperture of the rack must be 450.85 mm (17.75 in). Racks with 444.5 mm (17.5 in) horizontal aperture are not supported.\n\n[5] Section: 2.4.7 1830 PSS-16II shelf with support for integrated AC or DC power supply | Page: pp. 93-95\n    Path: 2 Shelves and common equipment/cards > 2.4 1830 PSS-16II shelf > 2.4.7 1830 PSS-16II shelf with support for integrated AC or DC power supply\n    EC slot is connected to the GND. This pin is NC on the AA and AB shelves and therefore the 32EC2 can distinguish the AC shelf from the AA/AB shelf. Figure 2-14 1830 PSS-16II AC shelf faceplate Rack mounting options The following rack types are supported: • 19-inch Front Mount (4 post cabinet) • 19-inch Mid Mount (2 post rack) • 21-inch ETSI rack • 23-inch ANSI rack Backplane The backplane generic function for 1830 PSS-16II AC shelf is similar to that of the 1830 PSS-16II shelf. Refer to 2.4.5 “Backplane” (p. 91). Slot numbering The 1830 PSS-16II AC shelf has the same slot numbering as that for the AA shelf. Electrical slot #19 is for PFA/CRU (either DC power card or AC power card), and #36 is for PFB/CRU (either DC power card or AC power card). Shelf power architecture The PF-DC card for the 1830 PSS-16II AC shelf has the same features as that for the AA shelf. The PF-AC card accepts AC power input and provides -48V DC power supply to other parts of the shelf. The PF-AC card provides the service 3.6V voltage to other parts of the shelf. For more information refer to 2.21.3 “16AC16” (p. 162)\n\nQUESTION: What is the required horizontal rack aperture for mounting a 1830 PSS-8 shelf, and which common aperture size is explicitly NOT supported?\n\nAnswer using only the CONTEXT above, following all rules.",
+    "answer": "Required horizontal rack aperture: 450.85 mm (17.75 in) [Section 2.2.2 Rack mounting options, p. 82]  \nAperture size explicitly not supported: 444.5 mm (17.5 in) [Section 2.2.2 Rack mounting options, p. 82]",
+    "refused_by": null,
+    "auto_flag": "keywords present"
+  },
+  {
+    "number": 8,
+    "question": "What is the maximum optical reach, in kilometers, of the 1830 PSS-8 shelf without amplification?",
+    "expected_section": "",
+    "hit_at_k": true,
+    "top1_score": 0.48606422543525696,
+    "retrieved": [
+      {
+        "chunk_id": "c0054",
+        "section_path": "2 Shelves and common equipment/cards > 2.2 1830 PSS-8 shelf > 2.2.2 Rack mounting options",
+        "page_start": 82,
+        "page_end": 82,
+        "score": 0.48606422543525696
+      },
+      {
+        "chunk_id": "c0013",
+        "section_path": "1 System concept > 1.2 System configuration > 1.2.5 Cluster configurations",
+        "page_start": 56,
+        "page_end": 57,
+        "score": 0.465036541223526
+      },
+      {
+        "chunk_id": "c0014",
+        "section_path": "1 System concept > 1.2 System configuration > 1.2.5 Cluster configurations",
+        "page_start": 57,
+        "page_end": 57,
+        "score": 0.463576078414917
+      },
+      {
+        "chunk_id": "c0065",
+        "section_path": "2 Shelves and common equipment/cards > 2.4 1830 PSS-16II shelf > 2.4.5 Backplane",
+        "page_start": 92,
+        "page_end": 92,
+        "score": 0.46192675828933716
+      },
+      {
+        "chunk_id": "c0071",
+        "section_path": "2 Shelves and common equipment/cards > 2.5 1830 PSS-32 shelf > 2.5.3 Slot numbering",
+        "page_start": 97,
+        "page_end": 99,
+        "score": 0.4537293016910553
+      }
+    ],
+    "prompt": "CONTEXT:\n[1] Section: 2.2.2 Rack mounting options | Page: p. 82\n    Path: 2 Shelves and common equipment/cards > 2.2 1830 PSS-8 shelf > 2.2.2 Rack mounting options\n    The following rack types are supported: • 19-inch EIA rack • ETSI rack • 23-inch ANSI rack Note: When installing on ETSI rack, air deflector 3KC50248AB can be used. For more details, refer 1830 Photonic Service Switch (PSS) Installation and System Turn-Up Guide. Note: The horizontal aperture of the rack must be 450.85 mm (17.75 in). Racks with 444.5 mm (17.5 in) horizontal aperture are not supported.\n\n[2] Section: 1.2.5 Cluster configurations | Page: pp. 56-57\n    Path: 1 System concept > 1.2 System configuration > 1.2.5 Cluster configurations\n    0 7 7 0 23 7 23 23 233 PSS-32 with EC4 8 0 0 8 8 0 23 23 235 Only supported in extension SWDM NE configurations PSS-32 with 32EC2 23 8 8 8 23 8 23 23 233 Notes: 1. Refer 1830 Photonic Service Switch (PSS-8/PSS-16II/PSS-16/PSS-32/PSI-4L/PSI-8L) Release 23.6.0 Customer Release Notes for the recommendation of the support in the release. 2. All network elements with involved 1830 PSS-24x shelves must have high-performance equipment controllers (32EC2) installed at the main shelf. It is in the customer's responsibility to enforce this. 3. The maximum number of 1830 PSS-8x shelves + 1830 PSS-12x shelves + 1830 PSS-24x shelves per NE must not exceed 8. 4. For multi-shelf configuration with PSS-32 main and PSS-32 extension (equipped with 32EC2) and PSS-16II extension, it is recommended to use 32EC2 in the PSS-32 main shelf. 5. The maximum number of 1830 PSS-8 shelves + 1830 PSS-16II shelves per NE must not exceed 8. The following table summarizes the supported combinations of 1830 PSS shelves within a tributary PSI-8L/PSI-4L shelf. Up to 33 non-universal (passive module) shelves are supported per NE. Table 1-3 Multi-shelf combinations for a single PSI-8L/PSI-4L NE Master shelf Extension shelf PSI-4L PSI-8L Maximum number of extension shelves PSI-4L 30 30 30 PSI-8L 30 30 30\n\n[3] Section: 1.2.5 Cluster configurations | Page: p. 57\n    Path: 1 System concept > 1.2 System configuration > 1.2.5 Cluster configurations\n    shelf. Up to 33 non-universal (passive module) shelves are supported per NE. Table 1-3 Multi-shelf combinations for a single PSI-8L/PSI-4L NE Master shelf Extension shelf PSI-4L PSI-8L Maximum number of extension shelves PSI-4L 30 30 30 PSI-8L 30 30 30 Notes: 1. In cluster configuration, PSS-4L/PSS-8L functions as a main NE to provide optical line functions. The following table summarizes the supported combinations of 1830 PSS shelves within an extension OCS NE. Table 1-4 Multi-shelf combinations for a single OCS NE Main shelf Extension shelf PSS-36 PSS-64 Maximum number of extension shelves PSS-36 7 7 7 PSS-64 7 7 7\n\n[4] Section: 2.4.5 Backplane | Page: p. 92\n    Path: 2 Shelves and common equipment/cards > 2.4 1830 PSS-16II shelf > 2.4.5 Backplane\n    speed OHI (HS_OHI) with a speed up to 6.25 Gbps. Service power V3.6 is provided to all slots on the shelf. Each PF contains a 3.3V DC/DC converter that provides the V3.6 service voltage that is distributed by the backplane. Note: There is no connection between two horizontal half slots. 11DPM4M and 11DPM4E need the connectivity between horizontal half slots, so they are not supported in PSS-8 or 1830 PSS-16II platform due to connector conflict.\n\n[5] Section: 2.5.3 Slot numbering | Page: pp. 97-99\n    Path: 2 Shelves and common equipment/cards > 2.5 1830 PSS-32 shelf > 2.5.3 Slot numbering\n    The following rack types are supported: • 19-inch EIA rack • ETSI rack • 23-inch ANSI rack Note: The horizontal aperture of the rack must be 450.85 mm (17.75 in). Racks with 444.5 mm (17.5 in) horizontal aperture are not supported. The 1830 PSS-32 shelf is partitioned into the following slot types: • 32 paired half height application cards, or 16 full height application cards • 2 equipment controllers (EC) • 2 redundant power input filters • 1 user panel • 1 fan unit All fibering and shelf maintenance can be performed at the front of the chassis, thus allowing back-to-back installation when mounted in ETSI 300 mm cabinets. Refer to1830 Photonic Service Switch (PSS-32) Release 23.6 Installation and System Turn-Up Guide for full details. The layout of the 1830 PSS-32 shelf and physical slot numbering are shown in the following figure Figure 2-16 1830 PSS-32 Shelf slot layout\n\nQUESTION: What is the maximum optical reach, in kilometers, of the 1830 PSS-8 shelf without amplification?\n\nAnswer using only the CONTEXT above, following all rules.",
+    "answer": "Not found in the provided document. The passages cover rack mounting options, cluster configurations, backplane specifications, and slot numbering.",
+    "refused_by": "prompt",
+    "auto_flag": "refused (expected)"
+  }
+]

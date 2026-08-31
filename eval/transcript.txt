@@ -1,0 +1,41 @@
+$ uv run scripts/ask.py "How many slots does the 1830 PSS-8 shelf provide, and what is its rack-unit (RU) footprint?"
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 10406.95it/s]
+Question: How many slots does the 1830 PSS-8 shelf provide, and what is its rack-unit (RU) footprint?
+
+Retrieved chunks:
+  [0.793] c0059 | 2.3.1 Introduction | p.86-86
+  [0.739] c0063 | 2.4.3 Slot numbering | p.89-90
+  [0.735] c0053 | 2.2.1 Introduction | p.82-82
+  [0.719] c0062 | 2.4.1 Introduction | p.88-89
+  [0.715] c0071 | 2.5.3 Slot numbering | p.97-99
+
+Answer (refused_by=None):
+The 1830 PSS-8 shelf provides 8 slots and has a 3-RU footprint. [Section 2.2.1 Introduction, p. 82]
+
+$ uv run scripts/ask.py "What is the required horizontal rack aperture for mounting a 1830 PSS-8 shelf, and which common aperture size is explicitly NOT supported?"
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 10092.83it/s]
+Question: What is the required horizontal rack aperture for mounting a 1830 PSS-8 shelf, and which common aperture size is explicitly NOT supported?
+
+Retrieved chunks:
+  [0.767] c0054 | 2.2.2 Rack mounting options | p.82-82
+  [0.677] c0063 | 2.4.3 Slot numbering | p.89-90
+  [0.663] c0071 | 2.5.3 Slot numbering | p.97-99
+  [0.660] c0060 | 2.3.2 Rack mounting options | p.86-87
+  [0.591] c0068 | 2.4.7 1830 PSS-16II shelf with support for integrated AC or DC power supply | p.93-95
+
+Answer (refused_by=None):
+The rack's horizontal aperture must be 450.85 mm (17.75 in). Racks with a 444.5 mm (17.5 in) horizontal aperture are not supported. [Section 2.2.2 Rack mounting options, p. 82]
+
+$ uv run scripts/ask.py "What is the maximum optical reach, in kilometers, of the 1830 PSS-8 shelf without amplification?"
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|██████████| 103/103 [00:00<00:00, 9962.95it/s]
+Question: What is the maximum optical reach, in kilometers, of the 1830 PSS-8 shelf without amplification?
+
+Retrieved chunks:
+  [0.486] c0054 | 2.2.2 Rack mounting options | p.82-82
+  [0.465] c0013 | 1.2.5 Cluster configurations | p.56-57
+  [0.464] c0014 | 1.2.5 Cluster configurations | p.57-57
+  [0.462] c0065 | 2.4.5 Backplane | p.92-92
+  [0.454] c0071 | 2.5.3 Slot numbering | p.97-99
+
+Answer (refused_by=prompt):
+Not found in the provided document. The passages cover rack mounting options, cluster configurations, backplane specifications, and slot numbering.

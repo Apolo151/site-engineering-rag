@@ -1,0 +1,9 @@
+{
+  "model_name": "all-MiniLM-L6-v2",
+  "dim": 384,
+  "n_chunks": 161,
+  "normalized": true,
+  "sentence_transformers_version": "6.0.1",
+  "chunks_sha256": "fcb31d91dcba1919695f66e3d8fb182a3837e4d6ce8847b41c9895bcb2ad7d77",
+  "built_at": "2026-08-31T20:03:19"
+}

@@ -1,0 +1,16 @@
+.git
+.venv
+__pycache__
+*.pyc
+.pytest_cache
+.ruff_cache
+.claude
+.env
+data/interim
+docs
+tests
+eval/results.json
+eval/results.md
+eval/transcript.txt
+*.md
+!README.md

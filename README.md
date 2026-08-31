@@ -22,10 +22,52 @@ cp .env.example .env                      # then fill in OPENAI_API_KEY / GROQ_A
 uv run scripts/ask.py "How many slots does the 1830 PSS-8 shelf provide?"
 uv run scripts/evaluate.py                # runs all 8 fixed questions -> eval/results.md
 uv run pytest -q
+uv run rag-web                            # web GUI -> http://127.0.0.1:8000
 ```
 
 `scripts/ask.py --no-llm` runs retrieval only and prints the assembled prompt — useful for
 grading the retrieval half without an API key.
+
+## Web GUI
+
+A single lightweight page over the same `answer_question()` pipeline — question box, the 8
+evaluation questions as one-click samples, the retrieved passages with their cosine scores and
+heading paths, the abstain/answered badge, and a collapsible view of the exact assembled prompt.
+
+```bash
+uv run rag-web            # then open http://127.0.0.1:8000
+```
+
+It is a FastAPI app (`src/rag/web.py`) serving one self-contained `static/index.html` — no build
+step, no CDN, ~5 MB of added dependencies (`fastapi`, `uvicorn`). The persisted index is loaded
+once at startup and the embedding model is pre-warmed off the request path. Without an
+`OPENAI_API_KEY`/`GROQ_API_KEY` it runs in **retrieval-only** mode: sources and the assembled
+prompt still render, only the generation step is skipped. `RAG_WEB_HOST` / `RAG_WEB_PORT`
+override the bind address.
+
+**Stack choice:** vanilla HTML/CSS/JS over FastAPI was picked over Streamlit (~200 MB of
+`pandas`/`pyarrow`/`altair`/`tornado`, less layout control) and a React SPA (Node toolchain, build
+step, not a single command) — for a one-page Q&A tool the plain page is lighter and starts with
+one command.
+
+### Docker
+
+The whole app ships as one image. The prebuilt index is committed, so no PDF and no index build
+happen at container build time, and `poppler-utils` is not installed; the MiniLM model is baked
+into the image, so the first query is instant and the container needs no Hugging Face access at
+runtime.
+
+```bash
+cp .env.example .env      # optional - fill in a key for generation; skip for retrieval-only
+docker compose up --build # -> http://localhost:8000
+```
+
+Or without compose:
+
+```bash
+docker build -t rag-web .
+docker run -p 8000:8000 --env-file .env rag-web
+```
 
 ## Pipeline
 

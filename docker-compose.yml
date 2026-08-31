@@ -1,0 +1,11 @@
+services:
+  rag-web:
+    build: .
+    ports:
+      - "8000:8000"
+    # Optional: supplies OPENAI_API_KEY / GROQ_API_KEY / RAG_MODEL for generation.
+    # Without it the app still runs in retrieval-only mode.
+    env_file:
+      - path: .env
+        required: false
+    restart: unless-stopped

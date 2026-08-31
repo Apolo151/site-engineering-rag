@@ -6,6 +6,10 @@ Information & Planning Guide, Release 23.6** — Chapter 1 (System concept, pp. 
 pages and says **"Not found in the provided document"** when the answer isn't there, instead of
 guessing.
 
+
+[site-engineering-rag-demo.webm](https://github.com/user-attachments/assets/fd3426da-dd13-4c99-a61e-37f976128598)
+
+
 See [`docs/problem-statement.md`](docs/problem-statement.md) for the full problem statement,
 [`docs/diagrams.md`](docs/diagrams.md) for the system architecture, data flow, query sequence,
 and chunking diagrams, and [`docs/part-e-metadata-filtering.md`](docs/part-e-metadata-filtering.md)

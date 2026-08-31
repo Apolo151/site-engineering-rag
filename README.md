@@ -9,6 +9,10 @@ guessing.
 Built for the Nokia Egypt AI Summer Internship, Session 4 capstone. Parts A-D of the assignment
 are complete; Part E (stretch challenge) was intentionally left out of scope for this submission.
 
+See [`docs/problem-statement.md`](docs/problem-statement.md) for the full problem statement and
+[`docs/diagrams.md`](docs/diagrams.md) for the system architecture, data flow, query sequence,
+and chunking diagrams.
+
 ## Quickstart
 
 ```bash

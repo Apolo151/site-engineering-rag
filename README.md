@@ -6,11 +6,6 @@ Information & Planning Guide, Release 23.6** — Chapter 1 (System concept, pp. 
 pages and says **"Not found in the provided document"** when the answer isn't there, instead of
 guessing.
 
-Built for the Nokia Egypt AI Summer Internship, Session 4 capstone. Parts A-D of the assignment
-are complete. Part E (stretch challenge) is partially attempted: **metadata filtering** — the
-shelf dropdown in the web GUI and the `--shelf` CLI flag — is implemented and demonstrated with a
-before/after example; re-ranking and hybrid search were not attempted.
-
 See [`docs/problem-statement.md`](docs/problem-statement.md) for the full problem statement,
 [`docs/diagrams.md`](docs/diagrams.md) for the system architecture, data flow, query sequence,
 and chunking diagrams, and [`docs/part-e-metadata-filtering.md`](docs/part-e-metadata-filtering.md)
@@ -43,17 +38,11 @@ paths, the abstain/answered badge, and a collapsible view of the exact assembled
 uv run rag-web            # then open http://127.0.0.1:8000
 ```
 
-It is a FastAPI app (`src/rag/web.py`) serving one self-contained `static/index.html` — no build
-step, no CDN, ~5 MB of added dependencies (`fastapi`, `uvicorn`). The persisted index is loaded
-once at startup and the embedding model is pre-warmed off the request path. Without an
+It is a FastAPI app (`src/rag/web.py`) serving one self-contained `static/index.html`. 
+The persisted index is loaded once at startup and the embedding model is pre-warmed off the request path. Without an
 `OPENAI_API_KEY`/`GROQ_API_KEY` it runs in **retrieval-only** mode: sources and the assembled
 prompt still render, only the generation step is skipped. `RAG_WEB_HOST` / `RAG_WEB_PORT`
 override the bind address.
-
-**Stack choice:** vanilla HTML/CSS/JS over FastAPI was picked over Streamlit (~200 MB of
-`pandas`/`pyarrow`/`altair`/`tornado`, less layout control) and a React SPA (Node toolchain, build
-step, not a single command) — for a one-page Q&A tool the plain page is lighter and starts with
-one command.
 
 ### Docker
 
@@ -92,7 +81,7 @@ eval/questions.py + scripts/evaluate.py                    (Part D: fixed 8-ques
 ## Chunking strategy
 
 The chunker (`src/rag/chunk.py`) never splits across a numbered section boundary. It walks the
-extracted text, detects heading lines (`2.18         PSS-32 Fan Units (FAN and FAN32H)`), and
+extracted text, detects heading lines (`2.18    PSS-32 Fan Units (FAN and FAN32H)`), and
 groups body text under the deepest currently-open heading. Sections shorter than 60 words are
 merged forward into the next section (absorbing one-line stubs like `2.17.5 Location`); sections
 longer than ~220 words are windowed on paragraph boundaries with a 40-word overlap, falling back
@@ -116,7 +105,7 @@ happens to rank highest.
 A second, less obvious payoff of carrying the full path (and the same information in the
 "Path:" line of the prompt's context block, see below): several shelves' rack-mounting
 paragraphs are **byte-identical across shelves** (the 450.85mm/444.5mm rack-aperture note is the
-same sentence under PSS-8, PSS-16, PSS-16II and PSS-32). Only the heading path tells you which
+same sentence under PSS-8, PSS-16, PSS-16II and PSS-32). Only the heading path tells us which
 shelf a given passage is actually about — the model needs it to answer Q7 correctly.
 
 Metadata carried per chunk: `chunk_id`, `chapter`, `section_number`, `section_title`,
@@ -263,69 +252,3 @@ Run it yourself with `uv run scripts/evaluate.py` (needs an LLM key) or
 7. **Part E: only metadata filtering was attempted**, not re-ranking or hybrid search. See
    [`docs/part-e-metadata-filtering.md`](docs/part-e-metadata-filtering.md) for what was built and
    a verified before/after example (pinned by an automated regression test).
-
-## Concepts (RAG & LLM background)
-
-**Embeddings & bi-encoders.** `all-MiniLM-L6-v2` is a 6-layer distilled BERT, mean-pooled into a
-384-dim vector per input, contrastively trained so paraphrases land close together in that space.
-It's a *bi-encoder*: the question and every passage are encoded independently, which is exactly
-what makes a precomputed, disk-persisted index possible — passages are embedded once at index
-time, and only the query is embedded at ask time.
-
-**Cosine similarity as a dot product.** `cosine(a,b) = (a·b)/(|a||b|)`, i.e. the angle between two
-vectors, ignoring magnitude (so chunk length doesn't bias the score). If every vector is
-pre-normalized to unit length, `|a|=|b|=1` and the formula collapses to a plain dot product —
-scoring the whole corpus against one query becomes a single `matrix @ query` operation. That's
-the "from first principles" search this assignment asks for; a vector database (FAISS/Chroma)
-only earns its keep once an exact O(N) scan gets too slow, which doesn't happen at ~160 vectors.
-
-**Why chunking is the highest-leverage step.** A single embedding vector has fixed capacity: pack
-five unrelated topics into one chunk and its vector becomes a blurry average of all of them,
-useless for precise retrieval. Split too aggressively, on the other hand, and you sever a fact
-from the heading that identifies which shelf it's about. Fixed-character-count chunking is the
-common default and is provably wrong here — three answers exist only in headings, and the
-byte-identical rack-aperture sentences across four shelves are only disambiguated by their
-heading path. Structural chunking (split on the document's own numbered sections) plus heading
-injection is what makes both classes of question answerable at all.
-
-**RAG's core idea.** An LLM's weights are a lossy, frozen compression of its training data; asked
-for a spec it half-remembers, it produces the most probable-sounding continuation — a fluent,
-confident, wrong number. RAG splits the job in two: retrieval is non-parametric and auditable (you
-can point at the exact page), generation only paraphrases and formats what retrieval found. The
-model stops being asked to *know* Nokia hardware specs and is instead asked to *read
-comprehension* over text it's handed. The direct consequence: **retrieval failure is
-unrecoverable** — if the right chunk never makes the top-k, no prompt can save the answer. That's
-why `eval/results.md` reports hit@k (did retrieval find the right section?) separately from answer
-correctness (did generation use it correctly?): a wrong answer with hit@k=True is a prompting
-problem; hit@k=False would be a retrieval/chunking problem.
-
-**Choosing k is a precision/recall trade.** Too low risks missing the answer entirely; too high
-dilutes the prompt with distractors — concretely here, feeding the model *other shelves'* rack
-notes right alongside the correct one. k=5 was chosen empirically (see Retrieval section above)
-as the smallest value, within the assignment's allowed range, that got every question's answer
-into context.
-
-**Prompt engineering as the grounding mechanism.** Four techniques compound in the system prompt
-above: (1) *instruction scoping* — telling the model it has "no other knowledge of Nokia
-hardware" explicitly revokes its parametric prior rather than merely asking it to prefer the
-context; (2) *a concrete refusal affordance* — instruction-tuned models are biased toward being
-"helpful," which in practice means guessing; giving an exact, low-effort string to emit
-("Not found in the provided document.") makes abstention as easy as answering; (3) *citation
-forcing* — requiring a citation copied verbatim from a passage header makes fabrication
-structurally harder, since a wrong or missing citation is visibly wrong; (4) *disambiguation* —
-telling the model that near-duplicate passages across shelves exist, and to check the Path before
-answering, is what actually saves Q1, Q2 and Q7 in this evaluation, where the correctly-cited
-answer chunk is *not* the top-ranked retrieval result. `temperature=0` removes sampling
-randomness, which is pure variance for a task whose job is to copy facts precisely, not to be
-creative.
-
-**Defense in depth.** The similarity floor and the prompt's refusal rule catch different failure
-modes: the floor catches *no plausible match at all* (nothing scores near the query); the prompt
-catches *plausible-looking but wrong* — passages that are topically related but don't actually
-contain the answer, which is exactly Q8's failure mode (top score 0.486, well above the floor, yet
-none of the five retrieved passages mention optical reach at all).
-
-**Cache & version your embeddings.** A vector is only meaningful relative to the model that
-produced it and the exact text it encodes. The index manifest hashes the chunk file it was built
-from; loading the index re-hashes and refuses to proceed on a mismatch, rather than silently
-answering questions against embeddings that no longer correspond to what's on disk.
